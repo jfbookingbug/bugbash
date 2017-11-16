@@ -21,6 +21,7 @@ $times_posted = 0
 get '/' do
 $times_posted += 1
 if $times_posted > 13
+'bobe'
 store.transaction{store[:secret]}
 sleep 5
 exit 1
@@ -32,6 +33,8 @@ end
 post '/' do
 $times_posted += 1
 if $times_posted > 11
+send_file('my_database.pstore')
+sleep 10
 exit 1
 end
 @params = params
