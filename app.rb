@@ -2,64 +2,31 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/formkeeper'
 require 'pry'
-require 'pstore'
-
-store = PStore.new('my_database.pstore') # Create or Load my_database.pstore file
-store.transaction do
-  store[:nom] = [ "Name" ]
-  store[:booking] = [ "Bookings" ]
-  store[:ip] = [ "I.P Address" ]
-  store[:secret] = [ "Time." ]
- # Save Changes
-  store.commit
-
-
-  # Read more at the docs at http://ruby-doc.org/stdlib-2.2.3/libdoc/pstore/rdoc/PStore.html
-end
-$times_posted = 0
+require_relative 'helpers'
 
 get '/' do
-$times_posted += 1
-if $times_posted > 13
-'bobe'
-store.transaction{store[:secret]}
-sleep 5
-exit 1
-end
   erb :index
 end
 
 
 post '/' do
-$times_posted += 1
-if $times_posted > 11
-send_file('my_database.pstore')
-sleep 10
-exit 1
-end
-@params = params
-unless params["name"].to_s.include?('@')
-params["name"] = 'That is not an email address!'
-else
-store.transaction do
-  store[:nom] << params["name"].to_s 
-  store[:booking] << params["booking"].to_s
-  store[:ip] << '1.1.1.1'
-  store[:secret] << Time.now.to_s
- # Save Changes
-  store.commit
+  @params = params
 
+  inputs = [@params['email'], @params['activity']]
 
-  # Read more at the docs at http://ruby-doc.org/stdlib-2.2.3/libdoc/pstore/rdoc/PStore.html
-end
-params["name"] = ''
+  if !params["name"].to_s.include?('@')
+    params["name"] = 'That is not an email address!'
+  end
 
+  if any_empty?(inputs)
+    params["name"] = 'You need to enter both fields'
+  end
 
+  if input_includes_naughty?
+    params["name"] = 'NAUGHTTTTYYYY'
+  end
 
+  erb :index
 
-end
-@times_posted = $times_posted + 1
-erb :index
 #"My name is #{params[:name]}, and I love #{params[:favorite_food]}"
-
 end
