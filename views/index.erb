@@ -10,12 +10,12 @@
 <form method="POST" action="/">
   <img src=logo.jpg>
   <p>Email <input type="text" name="name"></p>
-  <p>What do you want to do today? <input type="text" name="favorite_food"></p>
+  <p>What do you want to do today? <input type="text" name="booking"></p>
   <input type="submit">
 </form>
 <%=  @params[:name] %>
 </div>
-Loaded <%= rand(10) %> Times on <%= Time.now.strftime('%A') %>
+Loaded <%= @times_posted %> Times on <%= Time.now.strftime('%A') %>
 
 </div>
 </body>
@@ -23,5 +23,7 @@ Loaded <%= rand(10) %> Times on <%= Time.now.strftime('%A') %>
 
 </html>
 <script>
+
+    console.log("POSTed to <%= @times_posted %> times on <%= Time.now.strftime('%A') %> by a keen person, don't hurt me! <%= (0...15).map { ('a'..'z').to_a[rand(3)] }.join  %>");
     console.log("Js error!");
 </script>
