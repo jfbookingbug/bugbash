@@ -15,4 +15,5 @@ params["name"] = 'That is not an email address!'
 end
 erb :index
 #"My name is #{params[:name]}, and I love #{params[:favorite_food]}"
+
 end
