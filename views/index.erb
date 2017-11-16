@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Make a booking</title></head>
+<link rel=stylesheet type=text/css href=/style.css />
+  <body>
+<div class="contained">
+<h1>Make a Booking with BookingBugs!</h1>
+
+<div class="thing">
+<form method="POST" action="/">
+  <img src=logo.jpg>
+  <p>Email <input type="text" name="name"></p>
+  <p>What do you want to do today? <input type="text" name="favorite_food"></p>
+  <input type="submit">
+</form>
+
+
+<%=  @params[:name] %>
+</div>
+
+
+</div>
+</body>
+
+
+
+
+
+</html>
