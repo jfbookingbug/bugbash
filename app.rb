@@ -4,6 +4,7 @@ require 'sinatra/formkeeper'
 require 'pry'
 require 'pstore'
 require_relative 'helpers'
+require 'json'
 
 
 require "base64"
