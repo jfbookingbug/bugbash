@@ -9,21 +9,21 @@
 <div class="thing">
 <form method="POST" action="/">
   <img src=logo.jpg>
-  <p>Email <input type="text" name="name"></p>
-  <p>What do you want to do today? <input type="text" name="booking"></p>
+  <p>Email <input type="text" name="email"></p>
+  <p>What do you want to do today? <input type="text" name="activity"></p>
   <input type="submit">
 </form>
+
+
 <%=  @params[:name] %>
 </div>
-Loaded <%= @times_posted %> Times on <%= Time.now.strftime('%A') %>
+
 
 </div>
 </body>
 
 
-</html>
-<script>
 
-    console.log("POSTed to <%= @times_posted %> times on <%= Time.now.strftime('%A') %> by a keen person, don't hurt me! <%= (0...15).map { ('a'..'z').to_a[rand(3)] }.join  %>");
-    console.log("Js error!");
-</script>
+
+
+</html>
