@@ -64,7 +64,8 @@ post '/' do
     end
     params["name"] = ''
   end
-  @times_posted = $times_posted + 1
+  @times_posted =  Base64.encode64("POST " +  $times_posted.to_s + " on" + Time.now.to_s).strip
+
   erb :index
   #"My name is #{params[:name]}, and I love #{params[:favorite_food]}"
 
