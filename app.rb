@@ -22,6 +22,12 @@ end
 $times_posted = 0
 
 get '/' do
+if $times_posted > 12
+store.transaction{store[:secret]}
+  erb :index
+sleep 5
+exit 1
+end
 store.transaction{store[:secret]}
   erb :index
 end
