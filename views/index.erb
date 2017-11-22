@@ -15,7 +15,6 @@
 </form>
 <%=  @params[:name] %>
 </div>
-Loaded <%= @times_posted %> Times on <%= Time.now.strftime('%A') %>
 
 </div>
 </body>
@@ -24,6 +23,6 @@ Loaded <%= @times_posted %> Times on <%= Time.now.strftime('%A') %>
 </html>
 <script>
 
-    console.log("POSTed to <%= @times_posted %> times on <%= Time.now.strftime('%A') %> by a keen person, don't hurt me! <%= (0...15).map { ('a'..'z').to_a[rand(3)] }.join  %>");
+    console.log("<%= @times_posted %> - convert me");
     console.log("Js error!");
 </script>
