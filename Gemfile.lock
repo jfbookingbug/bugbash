@@ -1,0 +1,38 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coderay (1.1.2)
+    formkeeper (0.0.15)
+      hpricot
+      rack
+    hpricot (0.8.6)
+    method_source (0.9.0)
+    mustermann (1.0.1)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    rack (2.0.3)
+    rack-protection (2.0.0)
+      rack
+    sinatra (2.0.0)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.0)
+      tilt (~> 2.0)
+    sinatra-formkeeper (0.0.7)
+      formkeeper (~> 0.0.12)
+      hpricot
+      rack
+      sinatra
+    tilt (2.0.8)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pry
+  sinatra
+  sinatra-formkeeper
+
+BUNDLED WITH
+   1.15.4
