@@ -45,7 +45,10 @@ post '/' do
   end
   @params = params
 
-  if input_includes_naughty?
+  if input_includes_magnet?
+    params['name'] = 'I LOVE MAGNETS'
+
+  elsif input_includes_naughty?
     params["name"] = 'NAAAUGHTY'
 
   elsif !params["name"].to_s.include?('@')
